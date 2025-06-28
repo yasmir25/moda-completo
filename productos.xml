@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<productos>
+    <producto>
+        <nombre>Vestuario de niñas</nombre>
+        <precio>25.00</precio>
+        <descripcion>Ropa infantil para niñas, cómoda y adorable.</descripcion>
+        <imagen>img/imagenes2/vestuario niñas.jpg</imagen>
+    </producto>
+    <producto>
+        <nombre>Vestuario de niños</nombre>
+        <precio>22.00</precio>
+        <descripcion>Ropa casual para niños, ideal para cualquier ocasión.</descripcion>
+        <imagen>img/imagenes2/vestuario niños.jpg</imagen>
+    </producto>
+    <producto>
+        <nombre>Ropa para bebés</nombre>
+        <precio>18.00</precio>
+        <descripcion>Prendas suaves y frescas para recién nacidos.</descripcion>
+        <imagen>img/imagenes2/ropa bebes.jpg</imagen>
+    </producto>
+</productos>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi sitio Web Moda Ternura</title>
+    <link rel="stylesheet" href="estilos-inicio.css">
+    </head>
+<body>
+    <header>
+          <h2> VISITA NUESTRA TIENDA MODA TERNURA</h2>
+
+        <nav>
+            <ul>
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="index2.html">Productos</a></li>
+              <li><a href="acercade.html">Acerca de</a></li>
+              <li><a href="servicios.html">Servicios</a></li>
+              <li><a href="Login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+   
+        <p>Moda Ternura viste con amor a los más pequeños. Ropa infantil con estilo, comodidad y ternura.</p>
+    
+    
+    <section class="proyectos">
+
+        <div class="proyecto">
+        <h2>Vestuario de niñas</h2>
+        <img src="img/imagenes2/vestuario niñas.jpg" alt="vestuario de niñas - Tienda Online de Ropa">
+        <p>Este proyecto muestra una tienda de ropa de niñas en línea, donde los padres pueden explorar y comprar productos con facilidad desde casa.</p>
+        </div>
+    
+      <div class="proyecto">
+        <h2>Vestuario de niños</h2>
+        <img src="img/imagenes2/vestuario niños.jpg" alt="Vestuario de niños ">
+        <p>En esta seccion encontraras estilos de ropa de niños casuales para cualquier ocasion, encontraras ropa comoda.</p>
+      </div>
+    
+      <div class="proyecto">
+        <h2>Ropa para bebes</h2>
+        <img src="img/imagenes2/ropa bebes.jpg" alt="Ropa para bebes">
+        <p>En esta seccion encontraras ropa comoda para los bebes del hogar, en el que sentiran frescura y suavidad .</p>
+      </div>
+
+      <div class="proyecto">
+        <h2>Vestuario casual de niños</h2>
+        <img src="img/imagenes2/vestuario casual.jpg" alt="vestuario de niños">
+        <p> Ropa casual de niños</p>
+        </div>
+    
+      <div class="proyecto">
+        <h2> calsetines de niños</h2>
+        <img src="img/calsetines.jpg" alt="calsetines de niños ">
+        <p>Muestra de nuestros productos calsetines para bebes</p>
+      </div>
+    
+      <div class="proyecto">
+        <h2>Ropa veranera</h2>
+        <img src="img/imagenes2/ropa veranera.jpg" alt="Ropa veranera">
+        <p>Seccion de Ropa Veranera de niños .</p>
+      </div>
+
+    </section>
+      <footer>
+      <p>DISFRUTA DE NUESTRA VARIEDAD DE PRODUCTOS.</p> 
+      </footer>
+
+      <script>
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("productos.xml")
+        .then(response => response.text())
+        .then(data => {
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(data, "application/xml");
+            const productos = xml.getElementsByTagName("producto");
+
+            const contenedor = document.querySelector(".proyectos");
+            contenedor.innerHTML = ""; // Limpia el contenido anterior
+
+            for (let i = 0; i < productos.length; i++) {
+                const nombre = productos[i].getElementsByTagName("nombre")[0].textContent;
+                const precio = productos[i].getElementsByTagName("precio")[0].textContent;
+                const descripcion = productos[i].getElementsByTagName("descripcion")[0].textContent;
+                const imagen = productos[i].getElementsByTagName("imagen")[0].textContent;
+
+                const div = document.createElement("div");
+                div.classList.add("proyecto");
+
+                div.innerHTML = `
+                    <h2>${nombre}</h2>
+                    <img src="${imagen}" alt="${nombre}">
+                    <p>${descripcion}</p>
+                    <p><strong>Precio:</strong> $${precio}</p>
+                `;
+
+                contenedor.appendChild(div);
+            }
+        })
+        .catch(error => console.error("Error al cargar XML:", error));
+});
+</script>
+
+</body>
+</html>
