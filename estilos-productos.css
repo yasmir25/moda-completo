@@ -4,6 +4,12 @@ body {
     background-color: #ffdb58
     font-family: Arial, Helvetica, sans-serif;
 
+header {
+  text-align: center;
+  padding: 20px;
+  font-style: normal;
+  background-color: orange;
+
 
 
 nav ul {
@@ -13,6 +19,8 @@ nav ul {
     gap: 25px;
     margin-top: 20px;
     flex-wrap: wrap;
+    padding: 0;
+    
 }
 
 nav ul li a {
