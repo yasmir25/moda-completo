@@ -19,6 +19,7 @@ nav ul {
     gap: 25px;
     margin-top: 20px;
     flex-wrap: wrap;
+      padding: 0;
 }
 
 nav ul li a {
